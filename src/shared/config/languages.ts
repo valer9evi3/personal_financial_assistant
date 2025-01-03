@@ -4,20 +4,10 @@ export const SUPPORTED_LANGUAGES = {
     code: 'en-US',
     flag: '🇺🇸',
   },
-  es: {
-    name: 'Español',
-    code: 'es-ES',
-    flag: '🇪🇸',
-  },
-  fr: {
-    name: 'Français',
-    code: 'fr-FR',
-    flag: '🇫🇷',
-  },
-  de: {
-    name: 'Deutsch',
-    code: 'de-DE',
-    flag: '🇩🇪',
+  ru: {
+    name: 'Russian',
+    code: 'ru-RU',
+    flag: 'ru',
   },
 } as const;
 

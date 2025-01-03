@@ -9,15 +9,10 @@ export const SUPPORTED_CURRENCIES = {
     symbol: '€',
     code: 'EUR',
   },
-  GBP: {
-    name: 'British Pound',
-    symbol: '£',
-    code: 'GBP',
-  },
-  JPY: {
-    name: 'Japanese Yen',
-    symbol: '¥',
-    code: 'JPY',
+  RUB: {
+    name: 'Русский рубль',
+    symbol: '₽',
+    code: 'RUB',
   },
 } as const;
 
