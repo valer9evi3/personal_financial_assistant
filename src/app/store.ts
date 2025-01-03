@@ -1,7 +1,6 @@
+import { categoriesReducer, transactionsReducer } from '@/entities/api';
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { transactionsReducer } from '@/entities/transaction';
-import { categoriesReducer } from '@/entities/category';
 
 export const store = configureStore({
   reducer: {
