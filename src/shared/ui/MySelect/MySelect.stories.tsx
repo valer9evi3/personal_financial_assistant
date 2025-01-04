@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { MySelect } from './MySelect';
 import { useState } from 'react';
 import { SelectChangeEvent } from '@mui/material';
+import { MySelect } from './MySelect';
 
 const meta: Meta<typeof MySelect> = {
   component: MySelect,
@@ -10,7 +10,7 @@ const meta: Meta<typeof MySelect> = {
   tags: ['autodocs'],
   parameters: {
     nextjs: {
-      appDirectory: true,
+      appDirectory: false,
     },
   },
 };

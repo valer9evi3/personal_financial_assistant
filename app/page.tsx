@@ -1,14 +1,10 @@
+import HomePage from '@/app/page';
+import { Providers } from '@/app/providers';
+
 export default function Home() {
   return (
-    <div
-      style={{
-        maxWidth: 1280,
-        margin: '0 auto',
-        padding: '2rem',
-        textAlign: 'center',
-      }}
-    >
-      Start prompting.
-    </div>
+    <Providers>
+      <HomePage />
+    </Providers>
   );
 }

@@ -2,12 +2,16 @@
 
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { MySelectProps } from './model';
+import { useSx } from '@/shared/hooks/useSx';
+import { select } from './styles';
 
 export function MySelect(props: MySelectProps) {
   const { value, onChange, options, label } = props;
 
+  const style = useSx(select);
+
   return (
-    <FormControl sx={{ minWidth: 180 }}>
+    <FormControl sx={style}>
       <InputLabel>{label}</InputLabel>
       <Select value={value} label={label} onChange={onChange}>
         {options.map((option) => (
