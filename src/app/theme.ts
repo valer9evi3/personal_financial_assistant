@@ -3,6 +3,10 @@
 import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
+  typography: {
+    fontFamily: 'var(--font-roboto)',
+  },
+  cssVariables: true,
   palette: {
     primary: {
       main: '#2196f3',
