@@ -1,24 +1,33 @@
 'use client';
 
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectProps,
+} from '@mui/material';
 import { MySelectProps } from './model';
 import { useSx } from '@/shared/hooks/useSx';
-import { select } from './styles';
+import { select, option } from './styles';
 
-export function MySelect(props: MySelectProps) {
-  const { value, onChange, options, label } = props;
+export function MySelect(props: MySelectProps & SelectProps) {
+  const { options, label } = props;
 
-  const style = useSx(select);
+  const styleSelect = useSx(select);
+  const styleOption = useSx(option);
 
   return (
-    <FormControl sx={style}>
+    <FormControl
+      fullWidth={props.fullWidth}
+      required={props.required}
+      sx={styleSelect}
+    >
       <InputLabel>{label}</InputLabel>
-      <Select value={value} label={label} onChange={onChange}>
+      <Select {...props}>
         {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span>{option.label}</span>
-            </span>
+          <MenuItem key={option.value} value={option.value} sx={styleOption}>
+            {option.label}
           </MenuItem>
         ))}
       </Select>

@@ -20,8 +20,8 @@ type Story = StoryObj<typeof MySelect>;
 const MySelectWithHooks = () => {
   const [state, setState] = useState('123');
 
-  const handleChange = (event: SelectChangeEvent<string>) => {
-    setState(event.target.value);
+  const handleChange = (event: SelectChangeEvent<unknown>) => {
+    setState(event.target.value as string);
   };
 
   let options = [
@@ -38,7 +38,6 @@ const MySelectWithHooks = () => {
     />
   );
 };
-
 export const Primary: Story = {
   render: () => <MySelectWithHooks />,
 };

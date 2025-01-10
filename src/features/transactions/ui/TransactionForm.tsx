@@ -5,12 +5,12 @@ import {
   DialogContent,
   DialogActions,
   Button,
-  TextField,
-  MenuItem,
 } from '@mui/material';
 
 import { addTransaction } from '../../../entities/transaction/model/slice';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
+import { MySelect } from '@/shared/ui/MySelect';
+import { MyInput } from '@/shared/ui/MyInput';
 
 interface TransactionFormProps {
   open: boolean;
@@ -35,6 +35,7 @@ export const TransactionForm = ({ open, onClose }: TransactionFormProps) => {
         id: crypto.randomUUID(),
         ...formData,
         amount: Number(formData.amount),
+        type: 'income',
       })
     );
     onClose();
@@ -45,7 +46,7 @@ export const TransactionForm = ({ open, onClose }: TransactionFormProps) => {
       <form onSubmit={handleSubmit}>
         <DialogTitle>Add Transaction</DialogTitle>
         <DialogContent>
-          <TextField
+          <MyInput
             fullWidth
             label='Title'
             margin='normal'
@@ -55,7 +56,7 @@ export const TransactionForm = ({ open, onClose }: TransactionFormProps) => {
             }
             required
           />
-          <TextField
+          <MyInput
             fullWidth
             type='number'
             label='Amount'
@@ -66,24 +67,23 @@ export const TransactionForm = ({ open, onClose }: TransactionFormProps) => {
             }
             required
           />
-          <TextField
-            select
-            fullWidth
+          <MySelect
             label='Category'
-            margin='normal'
             value={formData.categoryId}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, categoryId: e.target.value }))
+            onChange={(event) =>
+              setFormData((prev) => ({
+                ...prev,
+                categoryId: event.target.value as string,
+              }))
             }
+            options={categories.map((category) => ({
+              value: category.id,
+              label: category.name,
+            }))}
             required
-          >
-            {categories.map((category) => (
-              <MenuItem key={category.id} value={category.id}>
-                {category.name}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
+            fullWidth
+          />
+          <MyInput
             fullWidth
             type='date'
             label='Date'
@@ -94,7 +94,7 @@ export const TransactionForm = ({ open, onClose }: TransactionFormProps) => {
             }
             required
           />
-          <TextField
+          <MyInput
             fullWidth
             label='Description'
             margin='normal'

@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { Roboto } from 'next/font/google';
 
-const inter = Inter({ subsets: ['cyrillic'] });
+export const roboto = Roboto({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['cyrillic'],
+  display: 'swap',
+  variable: '--font-roboto',
+});
 
 export const metadata: Metadata = {
   title: 'Financial Assistant',
@@ -16,9 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ru'>
-      <body className={inter.className}>
-        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-      </body>
+      <body className={roboto.variable}>{children}</body>
     </html>
   );
 }
